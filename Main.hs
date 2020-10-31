@@ -9,7 +9,6 @@ import qualified Data.Aeson             as Aeson
 import           Data.ByteString        (ByteString)
 import qualified Data.ByteString.Base16 as Base16
 import qualified Data.ByteString.Lazy   as LBS
-import qualified Data.Maybe
 import           Data.Proxy             (Proxy (..))
 import qualified Data.String
 import           Data.Text              (Text)
@@ -54,15 +53,18 @@ config token = Config
   , configFetchCount = GitHub.FetchAtLeast 1
   }
 
+parseArgs :: [String] -> (FilePath, FilePath)
+parseArgs [db, json] = (db, json)
+parseArgs _ = error "Usage: dhall-release-hashes DATABASE FILEPATH"
+
 main :: IO ()
 main = do
   token <- System.Environment.getEnv "GITHUB_TOKEN"
-  args <- System.Environment.getArgs
-  let path = Data.Maybe.fromMaybe "dhall-releases.json" $ Data.Maybe.listToMaybe args
+  (db, json) <- parseArgs <$> System.Environment.getArgs
   AssetFold.releaseMapMain
     (config token)
     (Control.Foldl.generalize dhallAssetFold)
     (fmap (either (\t -> error ("Decoding error " <> show t)) id) $ AssetFold.binaryCodecStrict)
     parseDhallAsset
-    "data.db"
-    (LBS.writeFile path . Aeson.encode)
+    db
+    (LBS.writeFile json . Aeson.encode)

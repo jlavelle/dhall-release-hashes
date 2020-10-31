@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: ecada1bfd0cf2fd9b702214ab4c4d15ffd414ca580776dadd849c65d94848e28
+-- hash: b6bec1bc515407a495e407beabb6612b251a19b89870368ba2d2585b5c88e096
 
 name:           dhall-release-hashes
 version:        0.1.0.0
@@ -30,6 +30,7 @@ executable dhall-release-hashes
   ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       aeson
+    , aeson-pretty
     , base >=4.13 && <4.14
     , base16
     , bytestring

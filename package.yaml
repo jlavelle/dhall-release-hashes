@@ -55,17 +55,18 @@ ghc-options:
   - -Wredundant-constraints
 
 dependencies:
-  - base >=4.13 && <4.14
-  - github-asset-fold >=0.5.0.0 && <0.6
-  - foldl
-  - cryptohash-sha256
-  - bytestring
   - aeson
-  - containers
-  - github
-  - text
-  - profunctors
+  - aeson-pretty
+  - base >=4.13 && <4.14
   - base16
+  - bytestring
+  - containers
+  - cryptohash-sha256
+  - foldl
+  - github
+  - github-asset-fold >=0.5.0.0 && <0.6
+  - profunctors
+  - text
 
 executables:
   dhall-release-hashes:

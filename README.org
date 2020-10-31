@@ -1,0 +1,3 @@
+#+TITLE: dhall-release-hashes
+
+Generates the cache and ~sources.json~ file for [[https://github.com/jlavelle/nix-dhall-binaries][jlavelle/nix-dhall-binaries]].
