@@ -3,7 +3,7 @@ let sources = import ./nix/sources.nix;
     github-utils = import ./default.nix;
 in
 github-utils.shellFor {
-  withHoogle = true;
+  withHoogle = false;
   tools = {
     cabal = "3.2.0.0";
     haskell-language-server = "0.5.1";
@@ -13,7 +13,6 @@ github-utils.shellFor {
     [ ghcid
       hpack
       stylish-haskell
-      brittany
     ];
   exactDeps = true;
 }
