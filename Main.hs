@@ -50,7 +50,7 @@ config token = Config
   , configMaxRequests = 4
   , configOwner = "dhall-lang"
   , configRepo = "dhall-haskell"
-  , configFetchCount = GitHub.FetchAtLeast 1
+  , configFetchCount = GitHub.FetchAll
   }
 
 parseArgs :: [String] -> (FilePath, FilePath)
