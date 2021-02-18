@@ -29,7 +29,7 @@ parseExeName name = case Text.splitOn "-" name of
   [ "dhall", _, arch, os ]         -> (mkPlatform arch os, mkAsset "dhall")
   [ "dhall", rest, _, arch, os ]   -> (mkPlatform arch os, mkAsset ("dhall-" <> rest))
   [ "dhall", r1, r2, _, arch, os ] -> (mkPlatform arch os, mkAsset ("dhall-" <> r1 <> "-" <> r2))
-  l -> error $ "dhall-release-hashes: Unexpected asset name " <> show l
+  _ -> (mkPlatform "unknown" "unknown", mkAsset name)
   where
     mkPlatform arch os = GitHub.mkName Proxy (arch <> "-" <> Text.takeWhile (not . (==) '.') os)
     mkAsset = GitHub.mkName Proxy
