@@ -4,10 +4,10 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: b6bec1bc515407a495e407beabb6612b251a19b89870368ba2d2585b5c88e096
+-- hash: 20fe24bb790e1e71d43e7a54f0f7805c1148ea519a3e638592464410d6adc0cb
 
 name:           dhall-release-hashes
-version:        0.1.0.0
+version:        0.1.0.1
 homepage:       https://github.com/jlavelle/dhall-release-hashes#readme
 bug-reports:    https://github.com/jlavelle/dhall-release-hashes/issues
 author:         John Lavelle

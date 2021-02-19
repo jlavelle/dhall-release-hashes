@@ -64,7 +64,7 @@ main = do
   AssetFold.releaseMapMain
     (config token)
     (Control.Foldl.generalize dhallAssetFold)
-    (fmap (either (\t -> error ("Decoding error " <> show t)) id) $ AssetFold.binaryCodecStrict)
+    (fmap (either (\t -> error ("Decoding error " <> show t)) id) AssetFold.binaryCodecStrict)
     parseDhallAsset
     db
     (LBS.writeFile json . Aeson.encode)
